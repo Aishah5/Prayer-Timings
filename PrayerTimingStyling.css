@@ -85,7 +85,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 13pt;
-    padding-top: 14.2px;
+    padding-top: 4px;
+    height: 32.800px;
+    margin: 19.920px 0 19.920px 0;
 }
 
 .center{

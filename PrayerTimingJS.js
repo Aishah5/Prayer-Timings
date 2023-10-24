@@ -111,6 +111,13 @@ function getPrayerTiming(cityName) {
             FillTimeForPrayer("maghrib_time", timings.Maghrib)
             FillTimeForPrayer("isha_time", timings.Isha)
 
+            document.getElementById("fajr_remaining_time").innerHTML = ""
+            document.getElementById("sunrise_remaining_time").innerHTML = ""
+            document.getElementById("dhuhr_remaining_time").innerHTML = ""
+            document.getElementById("asr_remaining_time").innerHTML = ""
+            document.getElementById("maghrib_remaining_time").innerHTML = ""
+            document.getElementById("isha_remaining_time").innerHTML = ""
+            
             clearInterval(timer)
             let remainingTime = () => {
                 let currentTime = moment()
@@ -158,9 +165,9 @@ function FillRemainingTimeForPrayerExceptFajr(id, prayer) {
     let hours = durationRemainingTime.hours()
     let minutes = durationRemainingTime.minutes()
     let seconds = durationRemainingTime.seconds()
-
     let content = timeFormat(hours, minutes, seconds)
-    document.getElementById(id).innerHTML = content
+    document.getElementById(id).innerHTML = content + " -"
+    hideTimer(content, id)
 }
 
 function FillRemainingTimeForFajrPrayer(id, prayer) {
@@ -175,7 +182,8 @@ function FillRemainingTimeForFajrPrayer(id, prayer) {
 
     if (hours >= 0 && hours <= 7) {
         let content = timeFormat(hours, minutes, seconds)
-        document.getElementById(id).innerHTML = content
+        document.getElementById(id).innerHTML = content + " -"
+        hideTimer(content, id)
     }
     else {
         let hoursString = (hours + 23).toString()
@@ -200,8 +208,9 @@ function FillRemainingTimeForFajrPrayer(id, prayer) {
             secondsString = (seconds + 59)
         }
 
-        let content = hoursString + ":" + minutesString + ":" + secondsString + " -"
-        document.getElementById(id).innerHTML = content
+        let content = hoursString + ":" + minutesString + ":" + secondsString
+        document.getElementById(id).innerHTML = content + " -"
+        hideTimer(content, id)
     }
 }
 
@@ -228,6 +237,17 @@ function timeFormat(h, m, s) {
         secondsString = s
     }
 
-    let content = hoursString + ":" + minutesString + ":" + secondsString + " -"
+    let content = hoursString + ":" + minutesString + ":" + secondsString
     return content
+}
+
+function hideTimer(timer, id){
+    let isDone = false
+    console.log(isDone)
+    if(timer === "00:00:00"){
+        isDone = true
+        console.log(isDone)
+        console.log(typeof timer)
+        document.getElementById(id).style.display = "none"
+    }
 }
