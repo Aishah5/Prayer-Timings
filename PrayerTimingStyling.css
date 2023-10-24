@@ -1,0 +1,105 @@
+body {
+    background-color: #EAF2D7;
+    direction: rtl;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+}
+
+#main_prayer_timing {
+    width: 35%;
+    height: 700px;
+    margin: auto;
+}
+
+#content {
+    width: 93%;
+    height: 82vh;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    background-color: #B3DEE2;
+}
+
+#city_name {
+    margin: 0;
+    padding: 9px 18px 0 0;
+    font-size: 38pt;
+}
+
+#day_name {
+    margin: 0;
+    padding: 0 18px 0 0;
+    font-size: 13pt;
+}
+
+#date {
+    display: inline;
+    margin: 0;
+    padding: 0 18px 0 0;
+    font-size: 12pt;
+}
+
+#lower_part {
+    display: flex;
+    width: 85%;
+    height: 50vh;
+    margin: 25px auto 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.prayers_container{
+    width: 33%;
+    margin: 0;
+}
+
+#prayer_time {
+    width: 75%;
+    margin: 0 20px 0 0;
+}
+
+#prayer_time > h2 {
+    padding-top: 4px;
+    font-weight: normal;
+}
+
+#prayer_name {
+    width: 75%;
+    margin: 0 15px 0 0;
+}
+
+#prayer_name > h2 {
+    padding-top: 4px;
+    font-weight: normal;
+}
+
+#remaining_time {
+    width: 75%;
+    margin: 0 5px 0 0;
+}
+
+#remaining_time > h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13pt;
+    padding-top: 14.2px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#select_city {
+    width: 270px;
+    height: 39px;
+    font-size: 25px;
+    font-family: Tajawal;
+    border-radius: 20px;
+    background: none;
+    padding: 3px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Timing</title>
+    <link rel="stylesheet" href="PrayerTimingStyling.css" type="text/css">
+    <link rel="icon" href="mosque.png">
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/moment/min/moment.min.js"></script>
+    <script src="./node_modules/moment/locale/ar-dz.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- PRAYER TIMIMG CONTAINER -->
+    <div id="main_prayer_timing">
+        <!-- CONTENT -->
+        <div id="content">
+
+            <!-- UPPER(CITY + DATE) CONTAINER -->
+            <div id="city_date_container">
+                <h1 id="city_name">الرياض</h1>
+                <h4 id="day_name"></h4>
+                <h4 id="date"></h4>
+            </div>
+            <!-- // UPPER(CITY + DATE) CONTAINER // -->
+
+            <!-- LOWER CONTAINER -->
+            <div id="lower_part">
+
+                <!-- TIMING CONTAINER -->
+                <div class="prayers_container">
+                    <div id="prayer_time">
+                        <h2 id="fajr_time"></h2>
+                        <h2 id="sunrise_time"></h2>
+                        <h2 id="dhuhr_time"></h2>
+                        <h2 id="asr_time"></h2>
+                        <h2 id="maghrib_time"></h2>
+                        <h2 id="isha_time"></h2>
+                    </div>
+                </div>
+                <!-- // TIMING CONTAINER // -->
+
+                <!-- NAMES CONTAINER -->
+                <div class="prayers_container">
+                    <div id="prayer_name">
+                        <h2>الفجر</h2>
+                        <h2>الشروق</h2>
+                        <h2>الظهر</h2>
+                        <h2>العصر</h2>
+                        <h2>المغرب</h2>
+                        <h2>العشاء</h2>
+                    </div>
+                </div>
+                <!-- // NAMES CONTAINER // -->
+
+                <!-- REMAINING TIME CONTAINER  -->
+                <div class="prayers_container">
+                    <div id="remaining_time">
+                        <h3 id="fajr_remaining_time"></h3>
+                        <h3 id="sunrise_remaining_time"></h3>
+                        <h3 id="dhuhr_remaining_time"></h3>
+                        <h3 id="asr_remaining_time"></h3>
+                        <h3 id="maghrib_remaining_time"></h3>
+                        <h3 id="isha_remaining_time"></h3>
+                    </div>
+                </div>
+                <!-- // REMAINING TIME CONTAINER //  -->
+            </div>
+            <!-- // LOWER CONTAINER // -->
+
+            <!-- SELECT CONTAINER -->
+            <div class="center" style="margin-top: 30px;">
+                <select name="" id="select_city">
+                    <!-- <option>الاحساء</option> -->
+                </select>
+            </div>
+            <!-- // SELECT CONTAINER // -->
+
+        </div>
+        <!-- // CONTENT // -->
+    </div>
+    <!-- // PRAYER TIMIMG CONTAINER // -->
+</body>
+
+<script src="PrayerTimingJS.js"></script>
+
+</html>
