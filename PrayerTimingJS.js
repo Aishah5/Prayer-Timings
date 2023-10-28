@@ -25,8 +25,8 @@ getDate()
 
 let cities = [
     {
-        arName: "الرياض",
-        enName: "Riyadh"
+        arName: "أبها",
+        enName: "Abha"
     },
     {
         arName: "الباحة",
@@ -39,6 +39,10 @@ let cities = [
     {
         arName: "الدمام",
         enName: "Dammam"
+    },
+    {
+        arName: "الرياض",
+        enName: "Riyadh"
     },
     {
         arName: "القصيم",
@@ -65,18 +69,13 @@ let cities = [
         enName: "Ḩā'il"
     },
     {
-        arName: "أبها",
-        enName: "Abha"
-    },
-    {
         arName: "مكة المكرمة",
         enName: "Makkah"
     }
 ]
-
-for (let city of cities) {
+let city
+for (city of cities) {
     let content = `<option> ${city.arName} </option>`
-
     document.getElementById("select_city").innerHTML += content
 }
 
@@ -84,13 +83,14 @@ document.getElementById("select_city").addEventListener("change", function () {
     document.getElementById("city_name").innerHTML = this.value
 
     let cityName = ""
-    for (let city of cities) {
+    for (city of cities) {
         if (city.arName == this.value) {
             cityName = city.enName
         }
     }
     getPrayerTiming(cityName)
 })
+
 let timer
 function getPrayerTiming(cityName) {
     let params = {
@@ -117,7 +117,7 @@ function getPrayerTiming(cityName) {
             document.getElementById("asr_remaining_time").innerHTML = ""
             document.getElementById("maghrib_remaining_time").innerHTML = ""
             document.getElementById("isha_remaining_time").innerHTML = ""
-            
+
             clearInterval(timer)
             let remainingTime = () => {
                 let currentTime = moment()
@@ -166,8 +166,12 @@ function FillRemainingTimeForPrayerExceptFajr(id, prayer) {
     let minutes = durationRemainingTime.minutes()
     let seconds = durationRemainingTime.seconds()
     let content = timeFormat(hours, minutes, seconds)
-    document.getElementById(id).innerHTML = content + " -"
-    hideTimer(content, id)
+
+    if (content === "00:00:00") {
+        document.getElementById(id).innerHTML = ""
+    } else {
+        document.getElementById(id).innerHTML = content + " -"
+    }
 }
 
 function FillRemainingTimeForFajrPrayer(id, prayer) {
@@ -182,8 +186,11 @@ function FillRemainingTimeForFajrPrayer(id, prayer) {
 
     if (hours >= 0 && hours <= 7) {
         let content = timeFormat(hours, minutes, seconds)
-        document.getElementById(id).innerHTML = content + " -"
-        hideTimer(content, id)
+        if (content === "00:00:00") {
+            document.getElementById(id).innerHTML = ""
+        } else {
+            document.getElementById(id).innerHTML = content + " -"
+        }
     }
     else {
         let hoursString = (hours + 23).toString()
@@ -209,8 +216,11 @@ function FillRemainingTimeForFajrPrayer(id, prayer) {
         }
 
         let content = hoursString + ":" + minutesString + ":" + secondsString
-        document.getElementById(id).innerHTML = content + " -"
-        hideTimer(content, id)
+        if (content === "00:00:00") {
+            document.getElementById(id).innerHTML = ""
+        } else {
+            document.getElementById(id).innerHTML = content + " -"
+        }
     }
 }
 
@@ -239,15 +249,4 @@ function timeFormat(h, m, s) {
 
     let content = hoursString + ":" + minutesString + ":" + secondsString
     return content
-}
-
-function hideTimer(timer, id){
-    let isDone = false
-    console.log(isDone)
-    if(timer === "00:00:00"){
-        isDone = true
-        console.log(isDone)
-        console.log(typeof timer)
-        document.getElementById(id).style.display = "none"
-    }
 }
